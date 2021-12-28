@@ -1,0 +1,23 @@
+<% for(var i = 0; i < coins.length; i++) { %>
+<tr>
+    <td<%= i + 1 %></td>
+    <td><img src="<%= coins[i].logo %>" style="width:80px;height:30px;"><%= coins[i].name %></td>
+    <td><%= coins[i].symbol %></td>
+    <td><%= coins[i].description %></td>
+    <td><i class="fas fa-dollar-sign"></i><%= coins[i].marketCap.$numberDecimal %></td>
+    <td><%= coins[i].launchDt %></td>
+    <td>
+        <a href="/vote-coin?id=<%= coins[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><%= coins[i].vote %>&nbsp;<i class="fas fa-check-square"></i></span>
+        </a>
+    </td>
+    <td>
+        <a href="/update-user?id=<%= coins[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= coins[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>

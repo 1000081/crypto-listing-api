@@ -1,0 +1,42 @@
+
+<!-- include header -->
+<%- include('../include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/coin/add-coin" class="border-shadow">
+                    <span class="text-gradient">Add Coin <i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+            <!-- form handling -->
+            <form action="/coin" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th><i class="fas fa-donate"></i>&nbsp;Promoted coins</th>
+                            <th>Symbol</th>
+                            <th>1h</th>
+                            <th>Market Cap</th>
+                            <th>Launch</th>
+                            <th>Upvotes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_show') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('../include/_footer') %>
+<!-- /include footer -->
