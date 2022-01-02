@@ -1,45 +1,54 @@
-const { Number } = require('mongoose');
 const mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    name : {
-        type : String,
+    name: {
+        type: String,
         required: true,
         unique: true
     },
-    symbol : {
+    logo: {
         type: String,
         required: true
     },
-    description : String,
-    logo : String,
-    price : mongoose.Decimal128,
-    marketCap: mongoose.Decimal128,
-    vote: Number,
-    coinType: String,
+    chain: {
+        type: String,
+        required: true
+    },
+    presale: String,
+    coinType: {
+        type: String,
+        default: 'NEW'
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    contAddress: String,
     launchDt: {
         type: Date,
         required: true,
         default: Date.now
     },
-    preSale: String,
-    contracts : {
-        bsc: String,
-        ethereum: String,
-        polygon: String,
-        solana: String
+    marketCap: String,
+    price: String,
+    telegram: {
+        type: String,
+        required: true
     },
-    link : {
-        website: String,
-        telegram: String,
-        twitter: String
-
-    },
-    additionalInfo: {
-        message: String
+    twitter: String,
+    reddit: String,
+    discord: String,
+    otherChains: String,
+    dexToools: String,
+    swap: String,
+    vote: Number,
+    symbol: String,
+    listedDt:  {
+        type: Date,
+        default: Date.now
     }
-})
+});
 
-const CoinModel = mongoose.model('coin', schema);
+const Coin = mongoose.model('coin', schema);
 
-module.exports = CoinModel;
+module.exports = Coin;
