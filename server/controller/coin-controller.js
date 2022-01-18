@@ -11,36 +11,7 @@ exports.create = (req,res)=>{
         res.status(400).send({ message : "Content can not be emtpy!"});
         return;
     }
-
     console.log(req);
-
-    // const coin = new Coin({
-    //     name :  req.body.name,
-    //     symbol :  req.body.symbol,
-    //     description : req.body.description,
-    //     logo : req.body.logo,
-    //     price : req.body.price,
-    //     marketCap: req.body.marketCap,
-    //     launchDt: req.body.launchDt,
-    //     preSale: req.body.preSale,
-    //     coinType: req.body.coinType,
-    //     vote: req.body.vote,
-    //     contracts : {
-    //         bsc: req.body.contracts.bsc,
-    //         ethereum: req.body.contracts.ethereum,
-    //         polygon: req.body.contracts.polygon,
-    //         solana: req.body.contracts.solana
-    //     },
-    //     link : {
-    //         website: req.body.link.website,
-    //         telegram: req.body.link.telegram,
-    //         twitter: req.body.link.twitter
-    //     },
-    //     additionalInfo: {
-    //         message: req.body.additionalInfo.message
-    //     }
-    // })
-
     const coin = new Coin({
         name: req.body.name,
         logo: req.body.logo,

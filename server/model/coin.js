@@ -17,7 +17,7 @@ var schema = new mongoose.Schema({
     presale: String,
     coinType: {
         type: String,
-        default: 'NEW'
+        default: 'LISTED'
     },
     description: {
         type: String,
@@ -35,6 +35,7 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    website: String,
     twitter: String,
     reddit: String,
     discord: String,
