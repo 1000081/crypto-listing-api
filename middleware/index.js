@@ -22,8 +22,17 @@ class Middleware {
       }
       return res.json({ message: "Unauthorize" });
     } catch (e) {
-      logger.info("error occured " + e);
-      return res.json({ message: "Internal Error" });
+      let responseMessage = {};
+      if (e.code === "auth/id-token-expired") {
+        res.status(401);
+        responseMessage = { code: 401, message: "Unauthorized" };
+      } else if (e.code === "auth/argument-error") {
+        res.status(403);
+        responseMessage = { code: 403, message: "Forbidden" };
+      } else {
+        responseMessage = { code: 500, message: "Internal Server Error" };
+      }
+      return res.json(responseMessage);
     }
   }
 }
