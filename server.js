@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 8080;
 
 const corsOptions = {};
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
+//app.use(cors({ origin: "http://localhost:3000" }));
 // log requests
 app.use(morgan("tiny"));
 
@@ -21,7 +22,7 @@ app.use(morgan("tiny"));
 connectDB();
 
 //disabled for testing purpose
-app.use(middleware.decodeToken);
+//app.use(middleware.decodeToken);
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({ extended: true }));
