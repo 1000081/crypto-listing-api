@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 8080;
 
 const corsOptions = {};
 
-app.use(cors());
-//app.use(cors({ origin: "https://cryptolisting.herokuapp.com" }));
+// app.use(cors());
+app.use(cors({ origin: process.env.ORIGIN_URL_ALLOWED }));
 // log requests
 app.use(morgan("tiny"));
 
