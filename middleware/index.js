@@ -11,16 +11,22 @@ const logger = new winston.createLogger(myWinstonOptions);
 
 class Middleware {
   async decodeToken(req, res, next) {
+    console.log("Request headers===== " + JSON.stringify(req.headers));
+    console.log("Request headers===== " + req.method);
     let token =
       req.headers.authorization && req.headers.authorization.split(" ")[1];
     logger.info("before" + token);
     try {
-      const decodeValue = await admin.auth().verifyIdToken(token);
-      if (decodeValue) {
-        req.user = decodeValue;
+      if (req.method != "GET") {
+        const decodeValue = await admin.auth().verifyIdToken(token);
+        if (decodeValue) {
+          req.user = decodeValue;
+          return next();
+        }
+        return res.json({ message: "Unauthorize" });
+      } else {
         return next();
       }
-      return res.json({ message: "Unauthorize" });
     } catch (e) {
       let responseMessage = {};
       if (e.code === "auth/id-token-expired") {

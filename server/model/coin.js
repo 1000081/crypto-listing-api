@@ -66,6 +66,30 @@ var schema = new mongoose.Schema({
     type: String,
     default: "N",
   },
+  addedBy: {
+    type: String,
+    default: "",
+  },
+  addedAt: {
+    type: Date,
+    default: Date.now,
+  },
+  editedBy: {
+    type: String,
+    default: "",
+  },
+  editedAt: {
+    type: Date,
+    default: Date.now,
+  },
+  approvedBy: {
+    type: String,
+    default: "",
+  },
+  approvedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Coin = mongoose.model("coin", schema);
