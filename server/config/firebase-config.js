@@ -3,7 +3,8 @@ const admin = require("firebase-admin");
 const googleServiceAccountCreds = process.env.FIRE_BASE_SYSTEM_ACCOUNT;
 
 console.log(
-  "googleServiceAccountCreds-----------------" + process.env.MONGO_URI
+  "googleServiceAccountCreds-----------------" +
+    process.env.FIRE_BASE_SYSTEM_ACCOUNT
 );
 
 if (!googleServiceAccountCreds)
