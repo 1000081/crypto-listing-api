@@ -8,13 +8,12 @@ const connectDB = require("./server/database/connection");
 const app = express();
 const middleware = require("./middleware");
 
+app.use(cors());
+
 dotenv.config({ path: "config.env" });
 const PORT = process.env.PORT || 8080;
 
-const corsOptions = {};
-
-// app.use(cors());
-app.use(cors({ origin: process.env.ORIGIN_URL_ALLOWED }));
+//app.use(cors({ origin: process.env.ORIGIN_URL_ALLOWED }));
 // log requests
 app.use(morgan("tiny"));
 
