@@ -21,7 +21,7 @@ app.use(morgan("tiny"));
 connectDB();
 
 //disabled for testing purpose
-app.use(middleware.decodeToken);
+//app.use(middleware.decodeToken);
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({ extended: true }));

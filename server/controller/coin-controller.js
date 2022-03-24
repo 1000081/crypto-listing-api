@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     res.status(400).send({ message: "Content can not be emtpy!" });
     return;
   }
-  console.log(req);
+  // console.log(req);
   const coin = new Coin({
     name: req.body.name,
     logo: req.body.logo,

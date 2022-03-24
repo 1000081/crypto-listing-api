@@ -11,8 +11,6 @@ const logger = new winston.createLogger(myWinstonOptions);
 
 class Middleware {
   async decodeToken(req, res, next) {
-    console.log("Request headers===== " + JSON.stringify(req.headers));
-    console.log("Request headers===== " + req.method);
     let token =
       req.headers.authorization && req.headers.authorization.split(" ")[1];
     logger.info("before" + token);
