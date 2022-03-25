@@ -5,7 +5,7 @@ var Coin = require("../model/coin");
 exports.create = (req, res) => {
   // validate request
 
-  console.log("Add USER");
+  // console.log("Add USER");
 
   if (!req.body) {
     res.status(400).send({ message: "Content can not be emtpy!" });

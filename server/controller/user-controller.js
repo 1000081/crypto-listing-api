@@ -41,6 +41,7 @@ exports.find = (req, res) => {
 
     User.findById(id)
       .then((data) => {
+        console.log("GET user data ====>>" + JSON.stringify(data));
         if (!data) {
           res.status(404).send({ message: "Not found user with id " + id });
         } else {
@@ -53,10 +54,12 @@ exports.find = (req, res) => {
   }
   if (req.query.email) {
     const email = req.query.email;
+
     User.find({})
       .where("email")
       .equals(email)
       .then((data) => {
+        // console.log("GET user data ====>>" + data[0]);
         if (!data) {
           res.status(404).send({ message: "Not found user with id " + id });
         } else {
@@ -86,10 +89,10 @@ exports.update = (req, res) => {
     return res.status(400).send({ message: "Data to update can not be empty" });
   }
 
-  console.log(
-    "UPDATE USER=============================>>" +
-      JSON.stringify(req.body.votes[0])
-  );
+  //   console.log(
+  //     "UPDATE USER=============================>>" +
+  //       JSON.stringify(req.body.votes[0])
+  //   );
 
   const id = req.params.id;
 

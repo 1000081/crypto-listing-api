@@ -13,7 +13,7 @@ class Middleware {
   async decodeToken(req, res, next) {
     let token =
       req.headers.authorization && req.headers.authorization.split(" ")[1];
-    logger.info("before" + token);
+    // logger.info("before" + token);
     try {
       if (req.method != "GET") {
         const decodeValue = await admin.auth().verifyIdToken(token);
