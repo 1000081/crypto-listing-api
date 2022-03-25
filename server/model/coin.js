@@ -66,6 +66,10 @@ var schema = new mongoose.Schema({
     type: String,
     default: "N",
   },
+  isRejectedCoin: {
+    type: String,
+    default: "N",
+  },
   addedBy: {
     type: String,
     default: "",
